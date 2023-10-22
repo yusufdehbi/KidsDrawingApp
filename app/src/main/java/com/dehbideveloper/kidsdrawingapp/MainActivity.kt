@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
+import android.media.Image
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -80,6 +81,16 @@ class MainActivity : AppCompatActivity() {
         val ib_brush = findViewById<ImageButton>(R.id.ib_brush)
         ib_brush.setOnClickListener {
             showBrushSizeChooserDialog()
+        }
+
+        val ibUndo = findViewById<ImageButton>(R.id.ib_undo)
+        ibUndo.setOnClickListener {
+            drawingView?.onClickUndo()
+        }
+
+        val ibRedo = findViewById<ImageButton>(R.id.ib_redo)
+        ibRedo.setOnClickListener {
+            drawingView?.onClickRedo()
         }
 
         val ibGallery = findViewById<ImageButton>(R.id.ib_gallery)
